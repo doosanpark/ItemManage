@@ -1,0 +1,36 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head> 
+    <title>Getting Started: Serving Web Content</title> 
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.11.4/themes/redmond/jquery-ui.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/free-jqgrid/4.15.5/css/ui.jqgrid.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/free-jqgrid/4.15.5/jquery.jqgrid.min.js"></script>
+    <style>
+    	.conatiner {
+    		margin: 20px;
+    	}
+    </style>
+</head>
+<body>
+	<div class="conatiner">
+		취득물건 - MySql
+		<table id="itemInfoInMySql"></table>
+	</div>
+	<div class="conatiner">
+		취득물건 - Oracle
+		<table id="itemInfoInOracle"></table>
+		<button>버튼</button>
+	</div>
+	<div class="conatiner">
+		보유테이블 - Oracle
+		<table id="itemPosesses"></table>
+	</div>
+	<div class="conatiner">
+		물건정보 - Oracle
+		<table id="itemInfo"></table>
+	</div>
+    <script type="text/javascript" src="/js/ItemPage.js" ></script>
+</body>
+</html>
