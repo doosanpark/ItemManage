@@ -5,8 +5,56 @@
 
 <mapper namespace="com.item.mapper.ItemManageMapper">
 
-  <select id="getAllDataList" resultType="map">
-    SELECT * FROM item_acqird;
-  </select>
+	<select id="getItemAcqirdList" resultType="map">
+		SELECT
+			ITM_SEQ
+			, ITM_NM 
+			, ITM_CNT 
+			, ACQIRD_DATE 
+		FROM item_acqird
+		<if test='order == "true"'>
+			ORDER BY ACQIRD_DATE DESC
+		</if>
+	</select>
+  
+	<select id="getItemPossessList" resultType="map">
+		SELECT
+			ITM_EACH_SEQ
+			, ITM_SEQ
+			, ITM_NM
+			, ACQIRD_DATE 
+			, DUE_DATE 
+		FROM item_possess
+		<if test='order == "true"'>
+			ORDER BY ACQIRD_DATE DESC
+		</if>
+		<if test='order == "false"'>
+			ORDER BY ITM_EACH_SEQ ASC
+		</if>
+		
+	</select>
+  
+	<select id="getItemInfoList" resultType="map">
+		SELECT
+			ITM_SEQ
+			, ITM_NM
+			, DURABLE_MONTH
+			, DECODE(FLOOR(DURABLE_MONTH/12), 0, '', FLOOR(DURABLE_MONTH/12)||'년 ') || 
+            DECODE(MOD(DURABLE_MONTH,12), 0, '', MOD(DURABLE_MONTH,12)||'개월') AS DURABLE_DATE
+		FROM item_info
+		<if test='itmName != "" and itmName != null '>
+			WHERE ITM_NM = UPPER(#{itmName}) or ITM_NM = LOWER(#{itmName})
+		</if>
+	</select>
+  
+	<update id="setItemOrganize" >
+		INSERT INTO item_possess (itm_each_seq, itm_seq, itm_nm, acqird_date, due_date) 
+		VALUES (#{ITM_EACH_SEQ}, #{ITM_SEQ}, #{ITM_NM}, #{ACQIRD_DATE}, #{DUE_DATE})
+	</update>
+  
+	<update id="setRegItem">
+		INSERT INTO item_info (itm_seq, itm_nm, durable_month) 
+		VALUES (ITEM_SEQ.NEXTVAL, #{itemName}, #{itemMonth})
+	</update>
 
 </mapper>

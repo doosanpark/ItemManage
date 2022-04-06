@@ -11,25 +11,43 @@
     	.conatiner {
     		margin: 20px;
     	}
+    	.period {
+    		width: 50px;
+    	}
     </style>
 </head>
 <body>
 	<div class="conatiner">
-		취득물건 - MySql
-		<table id="itemInfoInMySql"></table>
-	</div>
-	<div class="conatiner">
-		취득물건 - Oracle
+		취득물건
 		<table id="itemInfoInOracle"></table>
-		<button>버튼</button>
+		<button id="orgnizItemData">정렬</button>
 	</div>
 	<div class="conatiner">
-		보유테이블 - Oracle
+		보유테이블
 		<table id="itemPosesses"></table>
 	</div>
 	<div class="conatiner">
-		물건정보 - Oracle
+		물건정보
 		<table id="itemInfo"></table>
+	</div>
+	<div class="conatiner">
+		<span class="">물건명: <input id="itemName"></span>
+		<span>내구연한: <input class="period" id="itemYear">년
+		<select class="period" id="itemMonth" name="job">
+		    <option value="">선택</option>
+		    <option value="1">1</option>
+		    <option value="2">2</option>
+		    <option value="3">3</option>
+		    <option value="4">4</option>
+		    <option value="5">5</option>
+		    <option value="6">6</option>
+		    <option value="7">7</option>
+		    <option value="8">8</option>
+		    <option value="9">9</option>
+		    <option value="10">10</option>
+		    <option value="11">11</option>
+		</select>개월</span>
+		<button id="btnRegItem">등록</button>
 	</div>
     <script type="text/javascript" src="/js/ItemPage.js" ></script>
 </body>

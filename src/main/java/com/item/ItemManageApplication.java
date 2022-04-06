@@ -11,10 +11,9 @@ import org.springframework.context.support.ClassPathXmlApplicationContext;
 public class ItemManageApplication {
 
 	public static void main(String[] args) {
-//		ApplicationContext context = new ClassPathXmlApplicationContext("mybatis/application.xml");
-//        String[] beanDefinitionNames = context.getBeanDefinitionNames();
-//
-//        System.out.println(Arrays.toString(beanDefinitionNames));
+		ApplicationContext context = new ClassPathXmlApplicationContext("mybatis/application.xml");
+        String[] beanDefinitionNames = context.getBeanDefinitionNames();
+        System.out.println(Arrays.toString(beanDefinitionNames));
 
 		SpringApplication.run(ItemManageApplication.class, args);
 	}

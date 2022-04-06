@@ -11,7 +11,6 @@ import lombok.RequiredArgsConstructor;
 @Controller
 public class ItemManagePageController {
 	
-	
 	@GetMapping("/itemPage.do")
 	  public String itemInfo(@RequestParam(name="name", required=false, defaultValue="World") String name, Model model) {
 		model.addAttribute("name", name);
