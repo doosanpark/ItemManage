@@ -1,0 +1,54 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head> 
+    <title>Getting Started: Serving Web Content</title> 
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.11.4/themes/redmond/jquery-ui.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/free-jqgrid/4.15.5/css/ui.jqgrid.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/free-jqgrid/4.15.5/jquery.jqgrid.min.js"></script>
+    <style>
+    	.conatiner {
+    		margin: 20px;
+    	}
+    	.period {
+    		width: 50px;
+    	}
+    </style>
+</head>
+<body>
+	<div class="conatiner">
+		취득물건
+		<table id="itemInfoInOracle"></table>
+		<button id="orgnizItemData">정렬</button>
+	</div>
+	<div class="conatiner">
+		보유테이블
+		<table id="itemPosesses"></table>
+	</div>
+	<div class="conatiner">
+		물건정보
+		<table id="itemInfo"></table>
+	</div>
+	<div class="conatiner">
+		<span class="">물건명: <input id="itemName"></span>
+		<span>내구연한: <input class="period" id="itemYear">년
+		<select class="period" id="itemMonth" name="job">
+		    <option value="">선택</option>
+		    <option value="1">1</option>
+		    <option value="2">2</option>
+		    <option value="3">3</option>
+		    <option value="4">4</option>
+		    <option value="5">5</option>
+		    <option value="6">6</option>
+		    <option value="7">7</option>
+		    <option value="8">8</option>
+		    <option value="9">9</option>
+		    <option value="10">10</option>
+		    <option value="11">11</option>
+		</select>개월</span>
+		<button id="btnRegItem">등록</button>
+	</div>
+    <script type="text/javascript" src="/js/ItemPage.js" ></script>
+</body>
+</html>

@@ -1,28 +1,8 @@
-#server: 
-#  address: 192.168.110.128  #톰캣 서버 이용 시 활성화
-#  port: 8081
-#spring:
-#  datasource:
-#    url: jdbc:oracle:thin:@//localhost:1521/xe
-#    username: system
-#    password: root
-#    driver-class-name: oracle.jdbc.driver.OracleDriver
-#  devtools: 
-#    livereload: 
-#      enabled: true
-#  thymeleaf:
-#    cache: false
-#mybatis:
-#  config: mybatis-config.xml
-#  type-aliases-package: com.item.demo.model
-#  mapper-locations: mybatis/mapper/*.xml
-
-
 server: 
   port: 8081
 spring:
   datasource:
-    url: jdbc:oracle:thin:@//localhost:1521/xe
+    url: jdbc:oracle:thin:@localhost:1521/xe
     username: system
     password: root
     driver-class-name: oracle.jdbc.driver.OracleDriver
@@ -45,7 +25,7 @@ logging:
       audit: info
       resultset: info
       connection: info
-
+      
 
 #  datasource:
 #    hikari:

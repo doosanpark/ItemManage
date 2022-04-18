@@ -6,20 +6,15 @@
 		<groupId>org.springframework.boot</groupId>
 		<artifactId>spring-boot-starter-parent</artifactId>
 		<version>2.6.6</version>
-		<relativePath/>
-<!-- lookup parent from repository -->
+		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
 	<groupId>com.item</groupId>
 	<artifactId>ItemManage</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<name>ItemManage</name>
 	<description>batch</description>
-	
-	<!-- 배포 형식 지정 -->
-	<packaging>jar</packaging>
-	
 	<properties>
-		<java.version>1.8</java.version>
+		<java.version>11</java.version>
 	</properties>
 	<dependencies>
 		<dependency>
@@ -29,28 +24,20 @@
 		</dependency>
 
 		<dependency>
-		   
-<groupId>org.springframework.boot</groupId>
-		   
-<artifactId>spring-boot-starter-web</artifactId>
+		    <groupId>org.springframework.boot</groupId>
+		    <artifactId>spring-boot-starter-web</artifactId>
 		</dependency>
 		
 		<!-- https://mvnrepository.com/artifact/org.springframework/spring-web -->
 		<dependency>
-		   
-<groupId>org.springframework</groupId>
-		   
-<artifactId>spring-web</artifactId>
+		    <groupId>org.springframework</groupId>
+		    <artifactId>spring-web</artifactId>
 		</dependency>
 		
 		<dependency>
-		 
-<groupId>org.springframework.boot</groupId>
-		 
-<artifactId>spring-boot-devtools</artifactId>
-		 
-<optional>true</optional>
-<!-- Restart를 원하지 않을 경우 false -->
+		  <groupId>org.springframework.boot</groupId>
+		  <artifactId>spring-boot-devtools</artifactId>
+		  <optional>true</optional> <!-- Restart를 원하지 않을 경우 false -->
 		</dependency>
 		
 		<dependency>
@@ -76,10 +63,8 @@
 		</dependency>
 		
 		<dependency>
-		   
-<groupId>org.springframework.boot</groupId>
-		   
-<artifactId>spring-boot-starter-thymeleaf</artifactId>
+		    <groupId>org.springframework.boot</groupId>
+		    <artifactId>spring-boot-starter-thymeleaf</artifactId>
 		</dependency>
 	</dependencies>
 
@@ -89,8 +74,7 @@
 				<groupId>org.springframework.boot</groupId>
 				<artifactId>spring-boot-maven-plugin</artifactId>
 			</plugin>
-	   
-</plugins>
+		</plugins>
 	</build>
 
 </project>

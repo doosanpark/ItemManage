@@ -3,17 +3,12 @@
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
        xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
  
-   
-<!--
-<bean id="bookService"
+    <!-- <bean id="bookService"
           class="com.item.books.BookService">
-       
-<property name="bookRepository" ref="bookRepository"/>
-   
-</bean>
+        <property name="bookRepository" ref="bookRepository"/>
+    </bean>
  
-   
-<bean id="bookRepository"
+    <bean id="bookRepository"
           class="com.item.books.BookRepository"/> -->
  
 </beans>

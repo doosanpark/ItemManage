@@ -20,22 +20,18 @@ public class ItemManageServiceImpl implements ItemManageService {
 
 	private final ItemManageMapper itemManageMapper ;
 
-	@Override
 	public List<Object> getItemAcqirdList(HashMap<String, Object> map) {
 		return itemManageMapper.getItemAcqirdList(map);
 	}
 
-	@Override
 	public List<Object> getItemPossessList(HashMap<String, Object> map) {
 		return itemManageMapper.getItemPossessList(map);
 	}
 
-	@Override
 	public List<Object> getItemInfoList(HashMap<String, Object> map) {
 		return itemManageMapper.getItemInfoList(map);
 	}
 	
-	@Override
 	public Integer setItemOrganize(HashMap<String, Object> map) {
 		
 		
@@ -69,7 +65,8 @@ public class ItemManageServiceImpl implements ItemManageService {
 				for(int i = itemAcqirdList.size() -1 ; i >= 0 ; i--) {
 					HashMap<String, Object> newData = (HashMap<String, Object>) itemAcqirdList.get(i);
 					Date newItmAcqirdDate =  new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").parse((String) newData.get("ACQIRD_DATE"));
-					for(int j = 0; j < Integer.parseInt(String.valueOf((newData.get("ITM_CNT")))); j++) {
+					for(int j = 0; j
+< Integer.parseInt(String.valueOf((newData.get("ITM_CNT")))); j++) {
 						if(newItmAcqirdDate.after(possessDate)) {
 							newData.put("ITM_EACH_SEQ", itmEachSeq + seq);
 							newData.put("DUE_DATE", "");
@@ -101,7 +98,6 @@ public class ItemManageServiceImpl implements ItemManageService {
 		return 0;
 	}
 
-	@Override
 	public Integer setRegItem(HashMap<String, Object> map) {
 		return itemManageMapper.setRegItem(map);
 	}
