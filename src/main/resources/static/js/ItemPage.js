@@ -1,9 +1,13 @@
 $(document).ready(function(){
 
-	setGridItemAcqird();	//취득물건
+	setGridItemAcqirdOrigin();	//취득물건
+	setGridItemAcqirdMoved();	//취득물건
 	setGridItemPossess();	//보유물건
 	setGridItemInfo();		//물건정보
 
+	setTimeout(function () { location.reload(); }, 10 * 60 * 1000);
+
+	
 })
 
 
@@ -27,8 +31,48 @@ $("#orgnizItemData").click(function() {
 	
 })
 
+
+
 //물건 등록 버튼	
-$("#btnRegItem").click(function() {
+$("#btnRegItemAcqird").click(function() {
+	
+	var itemAcqirdName = $("#itemAcqirdName").val();
+	var itemCnt = $("#itemCnt").val();
+	
+	if(itemAcqirdName == ""){
+		alert("물건명을 입력해야합니다.");
+		return;
+	}
+	if(itemCnt == ""){
+		alert("개수를 입력해야합니다.");
+		return;
+	}
+	
+    $.ajax({
+        type : "POST"
+        , data: {
+			"itemName": itemAcqirdName
+			, "itemCnt": itemCnt
+		}
+        , url : "/regItemAcqird.do"      
+        , success : function(res){
+	
+			if(res == 0){
+				alert("등록 실패하였습니다.");
+			} else if(res == 1){
+				alert("등록되었습니다.");
+	            location.reload();
+			}
+	
+        }
+    });
+	
+})
+
+
+
+//물건 등록 버튼	
+$("#btnRegItemInfo").click(function() {
 	
 	var itemName = $("#itemName").val();
 	var itemYear = $("#itemYear").val();
@@ -66,13 +110,13 @@ $("#btnRegItem").click(function() {
 
 
 //취득물건	
-function setGridItemAcqird(){
+function setGridItemAcqirdOrigin(){
     $.ajax({
         type : "POST",
         data: {"order": "false"},
-        url : "/itemAcqird.do",
+        url : "/itemAcqirdOrigin.do",
         success : function(res){
-            $("#itemInfoInOracle").jqGrid({
+            $("#itemInfoInOrigin").jqGrid({
 		        colModel: [
 		        	{ name: "ITM_NM", label: "물건명", align: "center"}
 		           ,{ name: "ITM_CNT", label: "물건 개수", align: "center", width: 60  }
@@ -84,6 +128,24 @@ function setGridItemAcqird(){
     });
 }
 
+//취득물건	
+function setGridItemAcqirdMoved(){
+    $.ajax({
+        type : "POST",
+        data: {"order": "false"},
+        url : "/itemAcqirdMoved.do",
+        success : function(res){
+            $("#itemInfoInMoved").jqGrid({
+		        colModel: [
+		        	{ name: "ITM_NM", label: "물건명", align: "center"}
+		           ,{ name: "ITM_CNT", label: "물건 개수", align: "center", width: 60  }
+		           ,{ name: "ACQIRD_DATE", label: "취득일자", align: "center" }
+		        ],
+		        data: res
+		    });
+        }
+    });
+}
 
 //보유물건	
 function setGridItemPossess(){

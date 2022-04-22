@@ -10,33 +10,33 @@ import java.util.List;
 
 import org.springframework.stereotype.Service;
 
-import com.item.mapper.ItemManageMapper;
+import com.item.mapper.oracle.ItemManageOracleMapper;
 
 import lombok.RequiredArgsConstructor;
 
 @Service
 @RequiredArgsConstructor
-public class ItemManageServiceImpl implements ItemManageService {
+public class ItemManageOracleServiceImpl implements ItemManageOracleService {
 
-	private final ItemManageMapper itemManageMapper ;
+	private final ItemManageOracleMapper ItemManageOracleMapper ;
 
 	public List<Object> getItemAcqirdList(HashMap<String, Object> map) {
-		return itemManageMapper.getItemAcqirdList(map);
+		return ItemManageOracleMapper.getItemAcqirdList(map);
 	}
 
 	public List<Object> getItemPossessList(HashMap<String, Object> map) {
-		return itemManageMapper.getItemPossessList(map);
+		return ItemManageOracleMapper.getItemPossessList(map);
 	}
 
 	public List<Object> getItemInfoList(HashMap<String, Object> map) {
-		return itemManageMapper.getItemInfoList(map);
+		return ItemManageOracleMapper.getItemInfoList(map);
 	}
 	
 	public Integer setItemOrganize(HashMap<String, Object> map) {
 		
 		
-		ArrayList<Object> itemAcqirdList = (ArrayList<Object>) itemManageMapper.getItemAcqirdList(map);
-		ArrayList<Object> itemPossessList = (ArrayList<Object>) itemManageMapper.getItemPossessList(map);
+		ArrayList<Object> itemAcqirdList = (ArrayList<Object>) ItemManageOracleMapper.getItemAcqirdList(map);
+		ArrayList<Object> itemPossessList = (ArrayList<Object>) ItemManageOracleMapper.getItemPossessList(map);
 	
 		if(itemAcqirdList.size() == 0) return 0;
 		
@@ -72,7 +72,7 @@ public class ItemManageServiceImpl implements ItemManageService {
 							newData.put("DUE_DATE", "");
 							HashMap<String, Object> itmName = new HashMap<String, Object>();
 							itmName.put("itmName", newData.get("ITM_NM"));
-							List<Object> itemInfoList = itemManageMapper.getItemInfoList(itmName);
+							List<Object> itemInfoList = ItemManageOracleMapper.getItemInfoList(itmName);
 							if(itemInfoList.size() > 0 ) {
 								HashMap<String, Object> itemInfoMap = (HashMap<String, Object>) itemInfoList.get(0);
 								
@@ -82,7 +82,7 @@ public class ItemManageServiceImpl implements ItemManageService {
 								
 								newData.put("DUE_DATE", new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(cal.getTime()));
 							}
-							itemManageMapper.setItemOrganize(newData);
+							ItemManageOracleMapper.setItemOrganize(newData);
 							seq++;
 						}
 					}
@@ -99,7 +99,7 @@ public class ItemManageServiceImpl implements ItemManageService {
 	}
 
 	public Integer setRegItem(HashMap<String, Object> map) {
-		return itemManageMapper.setRegItem(map);
+		return ItemManageOracleMapper.setRegItem(map);
 	}
 	
 }

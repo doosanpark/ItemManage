@@ -26,8 +26,19 @@
 </head>
 <body>
 	<div class="conatiner">
-		취득물건
-		<table id="itemInfoInOracle"></table>
+		취득물건-origin
+		<table id="itemInfoInOrigin"></table>
+	</div>
+	<div class="conatiner">
+		<span class="">취득물건 등록 - 물건명:<input id="itemAcqirdName"></span>
+			<span>물건개수:<input class="period" id="itemCnt">개
+			</span>
+		<button id="btnRegItemAcqird">등록</button>
+	</div>
+	
+	<div class="conatiner">
+		취득물건-moved
+		<table id="itemInfoInMoved"></table>
 		<button id="orgnizItemData">정렬</button>
 	</div>
 	<div class="conatiner">
@@ -39,37 +50,24 @@
 		<table id="itemInfo"></table>
 	</div>
 	<div class="conatiner">
-		<span class="">물건명:
-<input id="itemName"></span>
-		<span>내구연한:
-<input class="period" id="itemYear">년
-		<select class="period" id="itemMonth" name="job">
-		   
-<option value="">선택</option>
-		   
-<option value="1">1</option>
-		   
-<option value="2">2</option>
-		   
-<option value="3">3</option>
-		   
-<option value="4">4</option>
-		   
-<option value="5">5</option>
-		   
-<option value="6">6</option>
-		   
-<option value="7">7</option>
-		   
-<option value="8">8</option>
-		   
-<option value="9">9</option>
-		   
-<option value="10">10</option>
-		   
-<option value="11">11</option>
-		</select>개월</span>
-		<button id="btnRegItem">등록</button>
+		<span class="">물건정보 등록 - <input id="itemName"></span>
+			<span>내구연한:<input class="period" id="itemYear">년
+				<select class="period" id="itemMonth" name="job">
+					<option value="">선택</option>
+					<option value="1">1</option>
+					<option value="2">2</option>
+					<option value="3">3</option>
+					<option value="4">4</option>
+					<option value="5">5</option>
+					<option value="6">6</option>
+					<option value="7">7</option>
+					<option value="8">8</option>
+					<option value="9">9</option>
+					<option value="10">10</option>
+					<option value="11">11</option>
+				</select>개월
+			</span>
+		<button id="btnRegItemInfo">등록</button>
 	</div>
    
 <script type="text/javascript" src="/js/ItemPage.js" ></script>

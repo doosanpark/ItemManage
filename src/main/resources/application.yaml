@@ -1,0 +1,65 @@
+#server: 
+#  address: 192.168.110.128  #톰캣 서버 이용 시 활성화
+#  port: 8081
+#spring:
+#  datasource:
+#    url: jdbc:oracle:thin:@//localhost:1521/xe
+#    username: system
+#    password: root
+#    driver-class-name: oracle.jdbc.driver.OracleDriver
+#  devtools: 
+#    livereload: 
+#      enabled: true
+#  thymeleaf:
+#    cache: false
+#mybatis:
+#  config: mybatis-config.xml
+#  type-aliases-package: com.item.demo.model
+#  mapper-locations: mybatis/mapper/*.xml
+
+server: 
+  port: 8081
+
+# 로컬 다중DB
+spring:
+  master:
+    datasource:
+      driver-class-name: com.mysql.cj.jdbc.Driver
+      jdbc-url: jdbc:mysql://localhost:3307/item_db?useUnicode=true&characterEncoding=UTF-8&zeroDateTimeBehavior=convertToNull
+      username: root
+      password: root
+  slave-1:
+    datasource:
+      driver-class-name: oracle.jdbc.driver.OracleDriver
+      jdbc-url: jdbc:oracle:thin:@localhost:1521/xe
+      username: system
+      password: root
+mybatis:
+  config: mybatis-config.xml
+  type-aliases-package: com.item.mapper
+  mapper-locations: mybatis/mapper/*.xml
+  
+#spring:
+#  datasource:
+#    url: jdbc:oracle:thin:@//localhost:1521/xe
+#    username: system
+#    password: root
+#    driver-class-name: oracle.jdbc.driver.OracleDriver
+#  devtools: 
+#    livereload: 
+#      enabled: true
+#  thymeleaf:
+#    cache: false
+#mybatis:
+#  config: mybatis-config.xml
+#  type-aliases-package: com.item.demo.model
+#  mapper-locations: mybatis/mapper/*.xml
+
+#logging:
+#  level: 
+#    jdbc:
+#      sqlonly: info
+#      sqltiming: info
+#      resultsettable: info
+#      audit: info
+

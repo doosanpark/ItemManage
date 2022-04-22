@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.item.mapper.mysql.ItemManageMysqlMapper">
+
+	<select id="getItemAcqirdList" resultType="map">
+		SELECT
+			ITM_SEQ
+			, ITM_NM 
+			, ITM_CNT 
+			, ACQIRD_DATE 
+		FROM item_acqird
+		<if test='order == "true"'>
+			ORDER BY ACQIRD_DATE DESC
+		</if>
+	</select>
+  
+  
+	<update id="setItemAcqird">
+		INSERT INTO item_acqird (ITM_NM, ITM_CNT, ACQIRD_DATE) 
+		VALUES (#{itemName}, #{itemCnt}, NOW())
+	</update>
+
+</mapper>
