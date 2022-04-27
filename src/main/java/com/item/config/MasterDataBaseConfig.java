@@ -15,14 +15,14 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Primary;
 import org.springframework.transaction.annotation.EnableTransactionManagement;
 
-@Configuration 
+@Configuration 	//config 파일이라고 명시함. 빈 설정 담당
 @MapperScan(value="com.item.mapper.mysql", sqlSessionFactoryRef="masterSqlSessionFactory") 
 @EnableTransactionManagement 
 public class MasterDataBaseConfig {
 	
 	@Primary
 	@Bean(name="masterDataSource")
-	@ConfigurationProperties(prefix="spring.master.datasource")
+	@ConfigurationProperties(prefix="spring.master.datasource")			//aplicaiton.yml에서 설정 가져옴
 	public DataSource masterDataSource() {
 		//application.properties에서 정의한 DB 연결 정보를 빌드
 		return DataSourceBuilder.create().build();
